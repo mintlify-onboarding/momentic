@@ -1,0 +1,74 @@
+---
+title: Running a test via webhook
+sidebarTitle: Webhook
+description: How to run tests by sending a webhook.
+---
+
+<Warning>
+  While you can trigger test runs using webhooks, we highly recommend using the
+  [Momentic CLI](/docs/cli) for interacting with Momentic's API.
+</Warning>
+
+You can trigger a test run by sending a POST request to a webhook URL. This can be useful if you want to trigger a test run in your CI pipeline. Make sure to generate an API key in the Momentic app first.
+
+## Running a single test
+
+<Tabs>
+  <Tab title="cURL">
+```bash
+curl -X POST \
+  -H 'Authorization: Bearer <INSERT_API_KEY_HERE>' \
+  -H "Content-Type: application/json" \
+  'https://api.momentic.ai/v1/tests/d8c4ee5c-bb47-4471-bbe1-93cbfef49fb4/queue'
+```
+  </Tab>
+  <Tab title="Fetch">
+```js
+fetch("https://api.momentic.ai/v1/tests/d8c4ee5c-bb47-4471-bbe1-93cbfef49fb4/queue", {
+  method: "POST", 
+  headers: {
+    Authorization: 'Bearer <INSERT_API_KEY_HERE>',
+    "Content-Type": "application/json"
+  },
+})
+```
+  </Tab>
+</Tabs>
+
+## Running multiple tests
+
+<Tabs>
+  <Tab title="cURL">
+```bash
+curl -X POST \
+  -H 'Authorization: Bearer <INSERT_API_KEY_HERE>' \
+  -H "Content-Type: application/json" \
+  'https://api.momentic.ai/v1/tests/queue' \
+  --data-binary @- << EOF
+  {
+    "testIds": [
+      "d8c4ee5c-bb47-4471-bbe1-93cbfef49fb4",
+      "d8c4ee5c-bb47-4471-bbe1-93cbfef49fb4"
+    ]
+  }
+EOF
+```
+  </Tab>
+  <Tab title="Fetch">
+```js
+fetch("https://api.momentic.ai/v1/tests/queue", {
+  method: "POST", 
+  headers: {
+    Authorization: 'Bearer <INSERT_API_KEY_HERE>',
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    testIds: [
+      "d8c4ee5c-bb47-4471-bbe1-93cbfef49fb4",
+      "d8c4ee5c-bb47-4471-bbe1-93cbfef49fb4"
+    ]
+  })
+})
+```
+  </Tab>
+</Tabs>

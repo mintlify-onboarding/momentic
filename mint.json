@@ -1,0 +1,112 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Momentic",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
+  "favicon": "/favicon.jpg",
+  "colors": {
+    "primary": "#2971c7",
+    "light": "#2971c7",
+    "dark": "#2971c7"
+  },
+  "topbarLinks": [
+    {
+      "name": "Book a demo",
+      "url": "https://momentic.ai/schedule-demo"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Join the waitlist",
+    "url": "https://tally.so/r/nraKxo"
+  },
+  "tabs": [
+    {
+      "name": "Guides",
+      "url": "guides"
+    }
+  ],
+  "modeToggle": {
+    "default": "light",
+    "isHidden": true
+  },
+  "anchors": [
+    {
+      "name": "Blog",
+      "icon": "newspaper",
+      "url": "https://momentic.ai/blog"
+    },
+    {
+      "name": "Changelog",
+      "icon": "list-timeline",
+      "url": "https://momentic.ai/changelog"
+    },
+    {
+      "name": "Interactive demo",
+      "icon": "circle-play",
+      "url": "https://momentic.ai/docs/test-editor"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Introduction",
+      "pages": [
+        "overview"
+      ]
+    },
+    {
+      "group": "Creating a test",
+      "pages": [
+        "test-editor",
+        {
+          "group": "Step types",
+          "pages": [
+            "step-types/overview",
+            "step-types/preset-actions",
+            "step-types/ai-actions",
+            "step-types/ai-checks",
+            "step-types/modules"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Running a test",
+      "pages": [
+        "manual",
+        "cron",
+        "cli",
+        "webhook",
+        "github-actions",
+        "circleci"
+      ]
+    },
+    {
+      "group": "Viewing results",
+      "pages": [
+        "run-viewer"
+      ]
+    },
+    {
+      "group": "Notifications",
+      "pages": [
+        "slack",
+        "discord",
+        "demo"
+      ]
+    },
+    {
+      "group": "Getting Started",
+      "pages": [
+        "guides/signing-in",
+        "guides/get-api-key"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "linkedin": "https://www.linkedin.com/company/momentic-ai",
+    "discord": "https://momentic.ai/discord",
+    "x": "https://twitter.com/MomenticAI"
+  }
+}
